@@ -1,0 +1,715 @@
+@font-face {
+    font-family: poppins;
+    src: '../fonts/Poppins-Regular.ttf';
+}
+
+/*STYLE FOR ALL ELEMENTS*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: poppins, sans-serif;
+    text-decoration: none;
+}
+
+
+body {
+    background: #0e0d0d;
+    padding-bottom: 20px;
+}
+
+.navigation-bar {
+    height: 70px;
+    width: 100%;
+    position: sticky;
+    background: rgb(37, 37, 37);
+    top: 0;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0px -3px 7px #000;
+}
+
+.donate-button {
+    background: linear-gradient(10deg, rgb(32, 29, 20), rgb(22, 20, 14));
+    height: 28px;
+    width: 90px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation: blink infinite 1s ease-in;
+}
+
+
+@keyframes blink {
+
+    0%,
+    20% {
+        box-shadow: 0px 0px 5px -1px yellow;
+    }
+
+    40%,
+    70% {
+        box-shadow: 0px 0px 10px yellow;
+    }
+
+    80% {
+        box-shadow: 0px 0px 15px yellow;
+    }
+
+    100% {
+        box-shadow: 0px 0px 5px -1px yellow;
+
+    }
+
+
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger {
+    height: 12px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.hamburger.active .bars {
+    width: 20px;
+    position: absolute;
+}
+
+.hamburger.active .bars:first-child {
+    transform: rotate(45deg);
+}
+
+.hamburger.active .bars:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bars:last-child {
+    transform: rotate(-45deg);
+}
+
+.bars {
+    height: 2px;
+    background: goldenrod;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.hamburger:hover .bars {
+    opacity: 0.7;
+}
+
+.bars:first-child,
+.bars:last-child {
+    width: 13px;
+}
+
+.bars:nth-child(2) {
+    width: 20px;
+}
+
+.nav-links-container {
+    height: 0px;
+    width: 100%;
+    background: rgb(37, 37, 37, 0.8);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    -o-backdrop-filter: blur(3px);
+    -moz-backdrop-filter: blur(3px);
+    position: fixed;
+    top: 59px;
+    z-index: 99;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    transition: all 0.4s;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links-container.active {
+    height: auto;
+    padding: 20px 0px;
+}
+
+.nav-links-container a {
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.nav-links-container a.active,
+.nav-links-container a:not(.active):hover {
+    color: goldenrod;
+}
+
+.hero {
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(10deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../Images/128A1387.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    filter: brightness(110%);
+}
+
+
+
+video {
+    height: auto;
+    width: 100%;
+    transform: translateY(80px);
+    transition: 0.3s;
+    transition-delay: 0.6s;
+    opacity: 0;
+    filter: brightness(120%);
+}
+
+video.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.hero-content {
+    color: #fff;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    transform: translateY(420px);
+    opacity: 0;
+    transition: all 0.3s;
+    position: absolute;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.hero-content.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.hero-title {
+    color: goldenrod;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -3px;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 20px;
+    font-size: 64px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.italize {
+    color: goldenrod;
+}
+
+.hero-text {
+    width: 80%;
+    margin: 0px auto;
+    font-size: 16px;
+    height: auto;
+    line-height: 18px;
+}
+
+.donate-btn {
+    width: auto;
+    height: 30px;
+    background: linear-gradient(to right, rgb(32, 29, 20), rgb(22, 20, 14));
+    color: #fff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    transition: all 0.4s;
+    padding: 3px 10px;
+    font-size: 13px;
+    animation: blink infinite 1s ease-in;
+}
+
+
+.donate-btn:hover {
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    border: 1px solid gold;
+}
+
+.bible-verse {
+    height: auto;
+    background: rgb(37, 37, 37);
+    padding: 10px 20px;
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+}
+
+.line-cont {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.line {
+    height: 2px;
+    width: 0px;
+    background: goldenrod;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.line.active {
+    width: 50%;
+}
+
+.bible-title {
+    color: goldenrod;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.bible-text-cont {
+    transform: translateY(200px);
+    opacity: 0;
+    transition: all 0.4s;
+    transition-delay: 0.3s;
+}
+
+.bible-text-cont.active {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.bible-text {
+    color: #fff;
+    width: 100%;
+    height: 100px;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.scripture {
+    color: goldenrod;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.rsvp {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: goldenrod;
+    align-items: center;
+    padding: 20px;
+    background: rgb(37, 37, 37);
+    overflow: hidden;
+}
+
+.rsvp-title {
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.rsvp-cards-container {
+    height: auto;
+    width: 80%;
+    position: relative;
+}
+
+.rsvp1 {
+    left: -100%;
+    transition: 0.4s;
+}
+
+.rsvp2 {
+    bottom: -240px;
+    transition: 0.4s;
+    transition-delay: 0.8s;
+}
+
+.rsvp3 {
+    left: 100%;
+    transition: 0.4s;
+}
+
+.rsvp1.active {
+    left: 0px;
+}
+
+.rsvp2.active {
+    bottom: 0px;
+}
+
+.rsvp3.active {
+    left: 0px;
+}
+
+
+.rsvp-cards {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 20px;
+    align-items: center;
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.image-container {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    filter: brightness(100%);
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;
+    margin-left: -40px;
+
+}
+
+.rsvp3 .image-container img {
+    margin-left: -45px;
+    margin-top: -30px;
+}
+
+
+.rsvp-details {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 0px 10px
+}
+
+.rsvp-details .name {
+    font-size: 13px;
+
+}
+
+.rsvp-details a {
+    text-decoration: none;
+    color: #000;
+    font-size: 13px;
+    transition: 0.4s;
+}
+
+.rsvp-details a:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.number {
+    position: absolute;
+    top: 0;
+    font-size: 70px;
+    opacity: 0.1;
+    color: #b4b2b2;
+}
+
+.google-map {
+    height: 300px;
+    width: 100%;
+    padding: 20px;
+    background: #0e0d0d;
+}
+
+.map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.scroll-to-top {
+    color: #fff;
+    background: goldenrod;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 13px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.4s;
+    z-index: 100;
+}
+
+.scroll-to-top.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.footer-container {
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    color: #fff;
+    align-content: center;
+    justify-items: center;
+    font-size: 13px;
+    font-weight: 400;
+    border-top: 1px solid #b4b2b2;
+    width: 100%;
+    margin: 0px auto;
+}
+
+.fa-heart {
+    color: red;
+    animation: beep 1s linear infinite;
+}
+
+@keyframes beep {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* STYLING FOR GALLERY PAGE */
+.breadcrum {
+    height: 50px;
+    width: 92%;
+    border-radius: 4px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #b4b2b2;
+    padding-left: 8px;
+    font-size: 14px;
+    color: #b4b2b2;
+}
+
+.breadcrum a {
+    color: #fff;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    transition: all 0.4s;
+}
+
+.breadcrum a:not(.active):hover,
+.breadcrum a.active {
+    color: goldenrod;
+}
+
+.gallery-cont {
+    height: auto;
+    width: 92%;
+    padding: 15px 0px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.donate-payment {
+    border-radius: 8px;
+    border: 1px solid #b4b2b2;
+    padding: 20px 10px;
+}
+
+.gallery-image-cont {
+    width: 100%;
+    height: auto;
+    border: 1px solid #b4b2b2;
+    border-radius: 8px;
+}
+
+.appreciation-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.actual-image,
+.video-cont {
+    width: 100%;
+    height: calc(100% - 30px);
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.actual-image::before {
+    content: "";
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    background: yellow;
+    mix-blend-mode: soft-light;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.actual-image:hover::before {
+    width: 100%;
+}
+
+.actual-image img {
+    filter: brightness(120%);
+}
+
+.actual-image img,
+.video-cont img {
+    border-radius: 8px;
+    height: auto;
+    width: 100%;
+}
+
+.gallery-link {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+}
+
+.gallery-link a {
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.gallery-link a:hover {
+    opacity: 0.8;
+}
+
+/* STYLE FOR DONATION PAGE */
+.payOption {
+    width: 20%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.payOption img {
+    width: 100%;
+}
+
+.Godbless-message {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-size: 18px;
+    color: goldenrod;
+    line-height: 21px;
+    font-weight: 600;
+}
+
+.Godbless-message2 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+
+}
+
+.Godbless {
+    font-weight: 600;
+    color: #fff;
+}
+
+.telco-icons {
+    height: auto;
+    width: 90%;
+    margin: 0px auto;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.paymentdetails {
+    line-height: 22px;
+}
+
+.momoline {
+    font-size: 27px;
+}
+
+.momoname {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.error-message {
+    color: red;
+    font-size: 13px;
+}
+
+.developer {
+    color: goldenrod;
+}
